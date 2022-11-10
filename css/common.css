@@ -198,40 +198,7 @@
 {
     text-align: center;
 }
-.post-password-form input[type="submit"] 
-{
-    color: #ffffff;
-    margin-top: 30px;
-    border-radius: 50px;
-    padding: 15px 30px;
-    background-color: #e625a4;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 1px solid #e625a4;
-    transition: all .3s ease;
-}
-.post-password-form input[type="submit"]:hover
-{
-    background-color: #fff;
-    color: #e625a4;
-}
-.post-password-form input[name="post_password"] 
-{
-    font-family: 'Roboto', serif;
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: 300;
-    border: 0;
-    border-bottom: 1px solid;
-    height: 28px;
-}
-.post-password-form label 
-{
-    font-size: 16px;
-    margin-top: 22px;
-    font-weight: 400;
-    display: block;
-}
+
 blockquote
 {
     font-weight: 300;

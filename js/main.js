@@ -151,15 +151,6 @@ jQuery(document).on('ready', function () {
     jQuery('blockquote.inline-blockquote').next('p').addClass('wrap-blockquote');
     jQuery('blockquote.inline-blockquote').css('display', 'table');
 
-    //Placeholder show/hide
-    jQuery('input, textarea').on("focus", function () {
-        jQuery(this).data('placeholder', jQuery(this).attr('placeholder'));
-        jQuery(this).attr('placeholder', '');
-    });
-    jQuery('input, textarea').on("blur", function () {
-        jQuery(this).attr('placeholder', jQuery(this).data('placeholder'));
-    });
-
     //Fit Video
     jQuery(".site-content").fitVids();
 
@@ -249,10 +240,6 @@ var skillsFill = function () {
     jQuery(".v-skill-fill").each(function (i) {
         jQuery(this).width(jQuery(this).data("fill")).height(jQuery(this).data("fill"));
     });
-};
-
-var contactFormWidthFix = function () {
-    jQuery('.wpcf7 input[type=text], .wpcf7 input[type=email], .wpcf7 textarea').innerWidth(jQuery('.wpcf7-form').width());
 };
 
 var multiClickFunctionStop = function (e) {

@@ -26,7 +26,7 @@
 @import url("css/prettyPhoto.css");
 
 :root {
-   /* font-size: 62.5%; /* 10px */
+   font-size: 62.5%; /* 10px */
   
     --first-color: #797979;
     --second-color: #200D96;
@@ -41,6 +41,8 @@
 /* ===================================
     1. Global CSS
 ====================================== */
+
+
 body
 {
     font-family: 'Montserrat', sans-serif;
@@ -49,6 +51,9 @@ body
     font-weight: 300;
     color: var(--first-color);
     background-color: var(--white-color);
+
+		overflow-x: hidden;
+		min-height:100%;
 }
 
 body a
@@ -64,7 +69,13 @@ body a
   box-shadow: 2px 4px 5px rgba(19, 125, 224, 0.6);
 }
 
+.conversion {
+position: fixed;
+right: 18px;
+bottom: 70px;
+z-index: 10;
 
+}
 
 .site-wrapper ::selection 
 {
@@ -566,29 +577,6 @@ a.button:hover:after
 	margin: 10px auto;
 }
 
-#slider {
-	width: 90%;
-	max-width: 1300px;
-	height: 47vw;
-	max-height: 660px;
-
-	position: relative;
-}
-
-#slider img {
-	opacity: 0;
-	
-	position: absolute;
-
-	width: 100%;
-	height: 100%;
-
-	object-fit: cover;
-}
-
-#slider img.selected {
-	opacity: 1;
-}
 
 /* ===================================
     1.4 Global Curve/Intro/Big/Medium Text CSS
@@ -658,6 +646,10 @@ a.button:hover:after
     display: table;
     margin: 0 auto;
 		margin-bottom: 70px;
+}
+
+#product-title {
+	margin-bottom: 10px;
 }
 
 .section .page-description
@@ -731,10 +723,10 @@ margin-bottom: 5px;
 	background-color: var(--background-color);
 	margin: 0 auto;
 	background-image: url(./images/hero-banner.jpg);
+	min-height: 100%;
 	background-repeat: no-repeat;
   background-position: center center;
 	background-size: cover;
-  background-attachment: fixed;
   position: relative;
 	object-fit: cover;
 }
@@ -747,8 +739,12 @@ margin-bottom: 5px;
 .main-section {
   display: flex;
   flex-direction: column;
-  margin-right: 64px;
+  /* margin-right: 64px; */
 	align-items: center;
+}
+
+.main-section h1 {
+	max-width: 600px;
 }
 
 h1 { 
@@ -856,6 +852,110 @@ a.service-link:after
 {
     opacity: 1;    
 }
+
+#slider {
+	margin: 0 auto 70px;
+	max-width: 800px;
+	min-width: 200px;
+	max-height: 400px;
+	min-height: 200px;
+	overflow: hidden;
+}
+
+.slides {
+	width: 400%;
+	max-height: 400px;
+	min-height: 200px;
+	display: flex;
+}
+
+.slides input {
+	display: none;
+}
+
+.slide {
+	width: 25%;
+	position: relative;
+	transition: 2s;
+}
+
+.slide img {
+	width: 100%;
+	height: 100%;
+	max-width: 800px;
+	min-width: 200px;
+
+	object-fit: contain;
+	object-position: center;
+}
+
+.manual-navigation {
+	position: absolute;
+	width: 200px;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.manual-btn {
+	padding: 7px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 500ms;
+}
+
+.manual-btn:not(:last-child) {
+	margin-right: 25px;
+}
+
+.manual-btn:hover {
+	background-color: var(--second-color);
+}
+
+#radio1:checked ~ .first {
+	margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+	margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+	margin-left: -50%;
+}
+
+.navigation-auto div {
+	border: 2px solid var(--second-color);
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 500ms;
+}
+
+.navigation-auto {
+	position: absolute;
+	width: 800px;
+	margin-top: 410px;
+	display: flex;
+	justify-content: center;
+}
+
+.navigation-auto div:not(:last-child) {
+	margin-right: 25px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+	background-color: var(--second-color);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+	background-color: var(--second-color);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+	background-color: var(--second-color);
+}
+
 
 
 
@@ -1366,7 +1466,7 @@ a.video-popup-holder:hover .popup-play
     
 }
 
-.slider {
+.slider-logo {
 	width: 100vw;
 	height: auto;
 	margin: auto;
@@ -1374,18 +1474,18 @@ a.video-popup-holder:hover .popup-play
 	
 }
 
-.slider .slide-track {
+.slider-logo .slide-track {
 	display: flex;
 	animation: scroll 40s linear infinite;
 	-webkit-animation: scroll 40s linear infinite;
 	width: calc(350px * 20);
 }
 
-.slider .slide {
+.slider-logo .slide-logo {
 	width: 350px;
 }
 
-.slider .slide img {
+.slider-logo .slide-logo img {
 	width: 100%;
 }
 
@@ -1481,8 +1581,8 @@ footer ul
 {
     font-size: 16px;
     line-height: 36px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
     clear: both;
     color: var(--white-color);
     text-align: center;
@@ -1555,6 +1655,10 @@ li.social-footer a:first-child
 }
 
 
+#footer {
+    margin: 0;
+}
+
 /* ===================================
     9. Responsive CSS
 ====================================== */
@@ -1605,7 +1709,6 @@ li.social-footer a:first-child
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
-		background-attachment: fixed;
 		position: relative;
 		object-fit: cover;
 	}
@@ -2026,6 +2129,10 @@ li.social-footer a:first-child
 
 @media screen and (max-width: 650px) {  
 
+	.conversion {
+		width: 60px;
+	}
+
 	.cotac {
 		display: block;
 	}
@@ -2076,13 +2183,16 @@ li.social-footer a:first-child
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
-		background-attachment: fixed;
 		position: relative;
 		object-fit: cover;
 	}
 
 }
 @media screen and (max-width: 630px) {
+
+	.contact-info p {
+		max-width: 280px;
+	}
 
 	.main-section h1 {
 		font-size: 37px;
@@ -2136,6 +2246,10 @@ li.social-footer a:first-child
 }
 
 @media screen and (max-width: 520px) {
+
+	.contact-info p {
+		max-width: 260px;
+	}
 
 	.main-section h1 {
 	font-size: 30px;
@@ -2275,13 +2389,117 @@ li.social-footer a:first-child
 
 @media screen and (max-width: 374px) {
 
-    .big-number-full-width
-    {
-    background: none;
-    }
-
-    .logo-home {
-        padding: 0 15px;
-    }
+	#home {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-items: flex-start; 
+	
+		width: 100%;
+		height: 78vh;
+	
+		background-color: var(--background-color);
+		margin: 0 auto;
+		background-image: url(./images/hero-banner-smobile.jpg);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		position: relative;
+		object-fit: cover;
+	}
 
 }
+
+@media screen and (min-width: 300px) {
+	.manual-navigation {
+		width: 300px;
+		margin-top: 5px;
+	}
+
+	.navigation-auto {
+		width: 300px;
+		margin-top: 318px;
+	}
+}
+
+@media screen and (min-width: 370px) {
+	.navigation-auto {
+		margin-top: 370px;
+		width: 360px;
+	}
+	
+	.manual-navigation {
+		width: 360px;
+		margin-top: -30px;
+	}
+
+}
+@media screen and (min-width: 420px) {
+	.navigation-auto {
+		margin-top: 410px;
+		width: 410px;
+	}
+
+	.manual-navigation {
+		width: 410px;
+		margin-top: -30px;
+	}
+}
+@media screen and (min-width: 520px) {
+	.navigation-auto {
+		margin-top: 410px;
+		width: 520px;
+	}
+
+	.manual-navigation {
+		width: 520px;
+		margin-top: 9px;
+	}
+}
+@media screen and (min-width: 610px) {
+	.navigation-auto {
+		margin-top: 340px;
+		width: 600px;
+	}
+
+	.manual-navigation {
+		width: 600px;
+		margin-top: 8px;
+	}
+}
+@media screen and (min-width: 720px) {
+	.navigation-auto {
+		margin-top: 410px;
+		width: 730px;
+	}
+	.manual-navigation {
+		width: 730px;
+		margin-top: 9px;
+	}
+}
+@media screen and (min-width: 820px) {
+	.manual-navigation {
+		position: absolute;
+		width: 800px;
+		margin-top: 10px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.navigation-auto {
+		position: absolute;
+		width: 800px;
+		margin-top: 410px;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+ @media screen and (min-width:300px) and (max-width:900px) {
+	#home {
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	}	 
